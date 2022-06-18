@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coupon Auto Loader
+    </title>
+    <meta property="og:title" content="Coupon Auto Clipper" />
+    <meta property="og:description" content="Load all of your Digital Coupons without the need for an App!" />
+    <meta property="og:image"
+      content="https://www.poconorecord.com/storyimage/PR/20191030/NEWS/191039971/AR/0/AR-191039971.jpg" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    <base href="https://spmnj.dev/template/">
+    -->
+    <!--===============================================================================================-->
+    <!-- <link rel="icon" type="image/png" href="images/icons/favicon16x16.ico" sizes="16x16" />
+    <link rel="icon" type="image/png" href="images/icons/favicon32x32.ico" sizes="32x32" /> -->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.8.3/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.8.3/firebase-auth-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  </head>
+  <body>
+    <div class="limiter">
+      <div class="content-container"
+        style="background-image: url('https://www.poconorecord.com/storyimage/PR/20191030/NEWS/191039971/AR/0/AR-191039971.jpg');">
+        <div class="wrap-content">
+          <div id="content">
+            <script>
+              $(document).ready(function() {
+                if(getCookie("session_id")==null){
+                  loadlogin();
+                }
+                else {
+                  loadprofile();
+                }
+              });
+            </script>
+          </div>
+          <div id="popup" style="display: none">
+            <div id="popup-background" style="display: none; text-align: center;">
+              <div class="popup-title">
+                SCANNING
+              </div>
+              <select id="cameras-selection">
+              </select>
+              <div id="reader"></div>
+              <div class="popup-options">
+                <div class="container-popup-btn">
+                  <div id="popup-close" class="popup-btn">CLOSE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.js"></script>
+    <script src="js/camera.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
