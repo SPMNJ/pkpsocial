@@ -2,15 +2,20 @@
 <html lang="en">
 
 <head>
-	<title>TEMPLATE
+	<title>Coupon Auto Loader
 	</title>
+	<meta property="og:title" content="Coupon Auto Clipper" />
+	<meta property="og:description" content="Load all of your Digital Coupons without the need for an App!" />
+	<meta property="og:image"
+		content="https://www.poconorecord.com/storyimage/PR/20191030/NEWS/191039971/AR/0/AR-191039971.jpg" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--
 	<base href="https://spmnj.dev/template/">
 	-->
 	<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+	<link rel="icon" type="image/png" href="images/icons/favicon16x16.ico" sizes="16x16" />
+	<link rel="icon" type="image/png" href="images/icons/favicon32x32.ico" sizes="32x32" />
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
@@ -26,32 +31,45 @@
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="vendor/JsBarcode/JsBarcode.all.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<script src="js/main.js"></script>
 	<script>document.getElementsByTagName("html")[0].className += " js";</script>
-  	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 	<!--===============================================================================================-->
+
 </head>
 
 <body>
 	<div class="limiter">
-		<div class="content-container" style="background-image: url('https://www.towson.edu/visit/images/tu-aerial-view-m.jpg');">
+		<div class="content-container"
+			style="background-image: url('https://www.poconorecord.com/storyimage/PR/20191030/NEWS/191039971/AR/0/AR-191039971.jpg');">
 			<div class="wrap-content">
 				<div id="content">
-					<div id="content">
-						<div class="logo">
-							<img src="https://webapps.towson.edu/media/towsonu-logo-horiz-black2019.png" style="max-width: 100%;
-							height: auto;" alt="">
+					<script>
+						$(document).ready(function() {
+							if(getCookie("session_id")==null){
+								loadlogin();
+							}
+							else {
+								loadprofile();
+							}
+						});
+					</script>
+				</div>
+				<div id="popup" style="display: none">
+					<div id="popup-background" style="display: none; text-align: center;">
+						<div class="popup-title">
+							SCANNING
 						</div>
-						<span class="title p-b-34 p-t-27">
-							Website
-						</span>
-						<div class="content-loading">
-							<img src="images/Rolling-1s-200px.svg" alt="" height="100px" width="100px">
+						<select id="cameras-selection">
+						</select>
+						<div id="reader"></div>
+						<div class="popup-options">
+							<div class="container-popup-btn">
+								<div id="popup-close" class="popup-btn">CLOSE</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -73,6 +91,18 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 
+	<script>$("input[type=number]").on("keydown", function (e) {
+			var invalidChars = ["-", "+", "e", "."];
+			if (invalidChars.includes(e.key)) {
+				e.preventDefault();
+			}
+		});</script>
+
+	<!-- <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.js"></script>
+	<script src="js/camera.js"></script>
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+	<script src="js/main.js"></script>
 
 </body>
 
